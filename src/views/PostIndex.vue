@@ -6,7 +6,9 @@
       <p> {{ post.id }} </p>
       <h3> {{ post.title }} </h3>
       <p> {{ post.body }} </p>
-      <p> <img v-bind:src="post.image"> </p>
+      <router-link v-bind:to="`/posts/${post.id}`">
+        <p> <img v-bind:src="post.image"> </p>
+      </router-link>
       <p> ---------------------------------------------------------------- </p>
     </div>
   </div>

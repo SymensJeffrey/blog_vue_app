@@ -22,7 +22,8 @@ export default {
   methods: {
     showPost: function () {
       console.log("showing...");
-      axios.get("http://localhost:3000/posts/1").then(response => {
+      console.log(this.$route)
+      axios.get(`/posts/${this.$route.params.id}`).then(response => {
           console.log(response.data);
           this.post = response.data;
         })
