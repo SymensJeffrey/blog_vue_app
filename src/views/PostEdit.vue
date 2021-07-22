@@ -37,11 +37,16 @@ export default {
           console.log(response.data);
           this.post = response.data;
           this.editPostParams = response.data
-        })
-      },
-      destroyPost: function() {
-        console.log("deleting...");
-      }
+      })
+    },
+    destroyPost: function() {
+      console.log("deleting...");
+      axios.delete(`posts/${this.$route.params.id}`).then(response => {
+        console.log(response.data);
+        this.$router.push(`/posts`);
+
+      })
     }
-  };
+  }
+};
 </script>
