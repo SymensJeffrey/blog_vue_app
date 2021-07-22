@@ -5,6 +5,9 @@
     <p>Post: <input class="box" type="text" v-model="editPostParams.body"></p>
     <p>Image: <input type="text" v-model="editPostParams.image"></p>
     <button v-on:click="updatePost()">Update</button>
+    <br />
+    <br />
+    <button v-on:click="destroyPost()">Delete</button>
   </div>
 </template>
 <style></style>
@@ -36,6 +39,9 @@ export default {
           this.editPostParams = response.data
         })
       },
+      destroyPost: function() {
+        console.log("deleting...");
+      }
     }
   };
 </script>
