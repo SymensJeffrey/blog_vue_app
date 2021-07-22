@@ -12,9 +12,7 @@
 </template>
 
 <style>
-.box { 
-  width: 350px; height: 100px; border: 1px solid #999999; padding: 5px; 
-  }</style>
+</style>
 
 <script>
   import axios from "axios";

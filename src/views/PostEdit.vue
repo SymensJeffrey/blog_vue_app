@@ -17,11 +17,25 @@ export default {
       editPostParams: {}
     };
   },
-  created: function() {},
+  created: function() {
+    this.getPost();
+  },
   methods: {
     updatePost: function () {
       console.log("updating...")
+      axios.patch(`/posts/${this.$route.params.id}`, this.editPostParams).then((response) => {
+        console.log(response.date)
+        this.$router.push("/posts/" + this.$route.params.id);
+      })
     },
-  }
-};
+    getPost: function() {
+      console.log("getting post...")
+      axios.get(`/posts/${this.$route.params.id}`).then(response => {
+          console.log(response.data);
+          this.post = response.data;
+          this.editPostParams = response.data
+        })
+      },
+    }
+  };
 </script>
