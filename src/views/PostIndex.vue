@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <div id="nav"><router-link to="/posts/:id">Show Post</router-link></div>
     <h1> Posts </h1>
     <div v-for="post in posts">
       <p> {{ post.id }} </p>
