@@ -3,7 +3,8 @@
     <h1> Create new Post </h1>
     <div>
       <p>Title: <input type="text" v-model="newPostParams.title"></p>
-      <p>Post: <input class="box" type="text" v-model="newPostParams.body"></p>
+      <p>Post: <input class="box" type="text" v-model="newPostParams.body"><small> {{ 25 - newPostParams.body.length }} characters remaining </small>
+      <small v-if="newPostParams.body.length >  25"> over 150</small></p>
       <p>Image: <input type="text" v-model="newPostParams.image"></p>
       <button v-on:click="createPost()">Post</button>
 
@@ -20,7 +21,9 @@
     data: function () {
       return {
         message: "Welcome to Vue.js!",
-        newPostParams: {},
+        newPostParams: {
+          body: ""
+        },
       };
     },
     created: function () {
