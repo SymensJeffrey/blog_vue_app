@@ -2,7 +2,8 @@
 
   <div class="home">
     <h1> Posts </h1>
-    <div v-for="post in posts">
+    <p>Search: <input v-model="search_term"></p>
+    <div v-for="post in filterBy(posts, search_term, 'title') ">
       <p> {{ post.id }} </p>
       <h3> {{ post.title }} </h3>
       <p> {{ post.body }} </p>
@@ -18,11 +19,14 @@
 
 <script>
   import axios from "axios";
+  import Vue2Filters from "vue2-filters";
   export default {
+    mixins: [Vue2Filters.mixin],
     data: function () {
       return {
         message: "Welcome to Vue.js!",
         posts: [],
+        search_term: ""
       };
     },
     created: function () {

@@ -3,7 +3,7 @@
     <h1>{{ post.id }}</h1>
     <p>{{ post.title }}</p>
     <p>{{ post.body }}</p>
-    <p>{{ post.current_user_id }}</p>
+    <p>{{ post.user_id }}</p>
     <p> <img v-bind:src="post.image"> </p>
     <router-link v-bind:to="`/posts/${post.id}/edit`">Edit</router-link>
   </div>
@@ -15,7 +15,9 @@ export default {
   data: function() {
     return {
       message: "Show Page",
-      post: {}
+      post: {
+        user_id: ""
+      }
     };
   },
   created: function() {
