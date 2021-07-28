@@ -42,6 +42,7 @@
         </div>
       </nav>
       <p>is logged in? {{ isLoggedIn() }}</p>
+      <p> User ID {{ getUserId() }} </p>
     </div>
     <router-view/>
   </div>
@@ -59,6 +60,9 @@ export default {
       } else {
         return false;
       }      
+    },
+    getUserId: function() {
+      return localStorage.getItem("user_id");
     }
   }
 }
